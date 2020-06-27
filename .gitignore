@@ -1,3 +1,5 @@
+*.so
+*.wpo
 *#
 *.import.scm
 *.so
