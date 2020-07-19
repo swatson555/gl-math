@@ -24,7 +24,12 @@
 	  quaternion-magnitude
 	  quaternion-normalize
 	  quaternion-inverse
+	  quaternion-dot-product
 	  quaternion-cross-product
+	  q+
+	  q-
+	  q*
+	  m*quaternion
 	  quaternion-rotate-point
 	  quaternion-axis-angle-rotation
 	  quaternion-rotate-axis-angle
@@ -206,6 +211,12 @@
 		     (- (quaternion-z q))
 		     (quaternion-w q)))
 
+  (define (quaternion-dot-product a b)
+    (+ (* (quaternion-x a) (quaternion-x b))
+       (* (quaternion-y a) (quaternion-y b))
+       (* (quaternion-z a) (quaternion-z b))
+       (* (quaternion-w a) (quaternion-w b))))
+
   (define (quaternion-cross-product a b)
     (make-quaternion (- (+ (* (quaternion-w a) (quaternion-x b))
 			   (* (quaternion-x a) (quaternion-w b))
@@ -223,6 +234,23 @@
 			(* (quaternion-x a) (quaternion-x b))
 			(* (quaternion-y a) (quaternion-y b))
 			(* (quaternion-z a) (quaternion-z b)))))
+
+  (define (q+ a b)
+    (make-quaternion (+ (quaternion-x a) (quaternion-x b))
+		     (+ (quaternion-y a) (quaternion-y b))
+		     (+ (quaternion-z a) (quaternion-z b))
+		     (+ (quaternion-w a) (quaternion-w b))))
+
+  (define (q- a b)
+    (make-quaternion (- (quaternion-x a) (quaternion-x b))
+		     (- (quaternion-y a) (quaternion-y b))
+		     (- (quaternion-z a) (quaternion-z b))
+		     (- (quaternion-w a) (quaternion-w b))))
+  (define (q* q s)
+    (make-quaternion (* s (quaternion-x q))
+		     (* s (quaternion-y q))
+		     (* s (quaternion-z q))
+		     (* s (quaternion-w q))))
 
   (define (quaternion-rotate-point q p)
     (define rotated

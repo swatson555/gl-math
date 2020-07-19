@@ -239,6 +239,22 @@ Return the inverse of the unit quaternion `Q`.
 
 Return the cross-product of the quaternions `A` and `B`.
 
+    [procedure] (quaternion-dot-product A B)
+
+Return the dot-product of the quaternions `A` and `B`.
+
+    [procedure] (q+ A B)
+ 
+Return the result of the addition of quaternions `A` and `B`.
+
+    [procedure] (q- A B)
+
+Return the result of the subtraction of quaternions `B` from `A`.
+
+    [procedure] (q* V S)
+
+Return the result of the multiplication of quaternion `A` with scalar `S`.
+
     [procedure] (quaternion-axis-angle-rotation AXIS ANGLE)
 
 Return the quaternion corresponding to a rotation of `ANGLE` radians around the vector `AXIS`.
